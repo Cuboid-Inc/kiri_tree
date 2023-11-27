@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(MaterialApp(
+    home: Home(),
+  ));
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
+class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Image.asset("assets/images/logo.png"),
       ),
     );
   }
