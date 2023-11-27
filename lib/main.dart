@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -7,13 +8,13 @@ void main() {
 }
 
 class Home extends StatelessWidget {
+  final WebViewController controller = WebViewController()
+    ..setJavaScriptMode(JavaScriptMode.unrestricted)
+    ..loadRequest(Uri.parse('https://kiritree.netlify.app'));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Image.asset("assets/images/logo.png"),
-      ),
+      body: SafeArea(child: WebViewWidget(controller: controller)),
     );
   }
 }
